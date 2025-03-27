@@ -30,7 +30,7 @@ Route::get('/auth/google/callback', function () {
     $user = User::updateOrCreate(
         ['email' => $googleUser->getEmail()],
         [
-            'nom' => $googleUser->getName(),
+            'name' => $googleUser->getName(),
             'email' => $googleUser->getEmail(),
             'image' => $googleUser->getAvatar(),
             'password' => bcrypt(str()->random(12))

@@ -15,7 +15,9 @@ type LoginForm = {
     password: string;
     remember: boolean;
 };
-
+const handleGoogleLogin = () => {
+    window.location.href = '/auth/google/redirect';
+};
 interface LoginProps {
     status?: string;
     canResetPassword: boolean;
@@ -40,6 +42,12 @@ export default function Login({ status, canResetPassword }: LoginProps) {
             <Head title="Log in" />
 
             <form className="flex flex-col gap-6" onSubmit={submit}>
+            <button
+                onClick={handleGoogleLogin}
+                className="mt-4 px-6 py-2 bg-red-500 text-white rounded-lg"
+            >
+                Se connecter avec Google
+            </button>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
